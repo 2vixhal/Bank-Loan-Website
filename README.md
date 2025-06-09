@@ -53,7 +53,7 @@ ai-loan-assistant
 ## Usage
 To run the application, execute the following command:
 ```
-python src/main.py
+python main.py
 ```
 This will start the server, and you can access the API at `http://localhost:8000`.
 
