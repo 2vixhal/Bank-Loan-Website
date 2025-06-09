@@ -1,7 +1,9 @@
-FastAPI
-uvicorn
-pydantic
-sqlalchemy
-requests
-pytest
-httpx
+streamlit
+pandas
+numpy
+scikit-learn
+xgboost
+matplotlib
+shap
+joblib
+imbalanced-learn
