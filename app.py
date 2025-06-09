@@ -1,5 +1,6 @@
 import streamlit as st
 # from src.models.predict import load_model, predict_and_explain
+# from chatbot import get_chat_response
 
 st.set_page_config(page_title="AI Loan Assistant", layout="centered")
 
@@ -12,10 +13,16 @@ st.set_page_config(page_title="AI Loan Assistant", layout="centered")
 
 st.title("💸 AI Loan & Investment Assistant")
 
-tab1, tab2, tab3 = st.tabs(["🏦 Loan Approval Predictor", "📈 Investment Calculator", "📊 EMI Calculator"])
+# Create 4 tabs
+loan_tab, invest_tab, emi_tab, chatbot_tab = st.tabs([
+    "🏦 Loan Approval Predictor", 
+    "📈 Investment Calculator", 
+    "📊 EMI Calculator",
+    "🤖 Chat with BankBot"
+])
 
 # ------------------- TAB 1: Loan Prediction -------------------
-# with tab1:
+# with loan_tab:
 #     st.header("🏦 Loan Approval Predictor")
 
 #     with st.form("loan_form"):
@@ -67,7 +74,7 @@ tab1, tab2, tab3 = st.tabs(["🏦 Loan Approval Predictor", "📈 Investment Cal
 #             st.info(f"📊 Risk Level: **{result['risk']}**")
 
 # ------------------- TAB 2: Investment Calculator -------------------
-with tab2:
+with invest_tab:
     st.header("📈 Investment Calculator")
 
     principal = st.number_input("Initial Investment (₹)", value=100000, step=1000, key="inv_principal")
@@ -79,7 +86,7 @@ with tab2:
         st.success(f"📌 Future Value: ₹{future_value:,.2f}")
 
 # ------------------- TAB 3: Loan EMI Calculator -------------------
-with tab3:
+with emi_tab:
     st.header("📊 EMI Calculator")
 
     loan_amt = st.number_input("Loan Amount (₹)", value=1000000, step=10000, key="emi_loan_amt")
@@ -91,3 +98,11 @@ with tab3:
         t = tenure_months
         emi = (loan_amt * r * (1 + r) ** t) / ((1 + r) ** t - 1)
         st.success(f"📌 Monthly EMI: ₹{emi:,.2f}")
+
+# ------------------- TAB 4: Chatbot -------------------
+# with chatbot_tab:
+#     st.header("🤖 Chat with BankBot")
+#     user_input = st.text_input("You:")
+#     if user_input:
+#         response = get_chat_response(user_input)
+#         st.markdown(f"**BankBot:** {response}")
