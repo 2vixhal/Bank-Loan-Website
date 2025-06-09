@@ -1,5 +1,6 @@
 from fastapi import APIRouter
-from src.services.loan_service import LoanService
+from ..services.loan_service import LoanService
+
 
 router = APIRouter()
 
